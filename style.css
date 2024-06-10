@@ -1,51 +1,48 @@
 body {
-    background-color: black;
+    margin: 0;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    background-color: black;
     color: white;
     font-family: Arial, sans-serif;
 }
 
 .container {
-    position: absolute;
     text-align: center;
 }
 
-h1 {
-    margin-bottom: 850px;
-    font-size: 3em;
+.heading {
+    font-size: 2em;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
-input {
-    margin-top: 20px;
-    padding: 10px;
-    font-size: 1em;
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input, textarea {
     width: 80%;
-    border-radius: 2px;
+    max-width: 500px;
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
 }
 
 button {
-    margin-top: 10px;
     padding: 10px 20px;
-    font-size: 1em;
-    background-color: #b2d1ff;
-    color: rgb(0, 0, 0);
     border: none;
     border-radius: 5px;
+    background-color: #444;
+    color: white;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #8ab9ff;
-}
-
-p {
-    font-size: small;
-    margin-top: 150px;
-    position: absolute;
+    background-color: #666;
 }

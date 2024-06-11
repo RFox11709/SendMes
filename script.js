@@ -1,30 +1,28 @@
-// Initialize EmailJS
-(function() {
-    emailjs.init('JURXlnQr4uc8icHVa'); // Replace 'YOUR_USER_ID' with your actual user ID from EmailJS
-})();
+document.addEventListener('DOMContentLoaded', (event) => {
+    emailjs.init('JURXlnQr4uc8icHVa'); // Replace 'YOUR_USER_ID' with your EmailJS user ID
 
-function sendMessage() {
-    const userInput = document.getElementById('userInput').value;
+    document.getElementById('messageForm').addEventListener('submit', function(e) {
+        e.preventDefault();
 
-    if (userInput) {
-        emailjs.send('service_ghost', 'template_mhlfw2v', {
-            message: userInput,
-        })
-        .then((response) => {
-            alert('Message sent successfully!');
-            console.log('SUCCESS!', response.status, response.text);
-        }, (error) => {
-            alert('Failed to send the message.');
-            console.log('FAILED...', error);
-        });
-    } else {
-        alert('Please type a message before sending.');
-    }
-}
+        // Collect the form data
+        var userName = document.getElementById('userName').value;
+        var userMessage = document.getElementById('userMessage').value;
 
-// Allow sending message with Enter key
-document.getElementById('userInput').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        sendMessage();
-    }
+        // Prepare the email parameters
+        var templateParams = {
+            to_name: 'Ghost',  // Replace with the recipient's name
+            from_name: userName,
+            message: userMessage,
+            reply_to: 'herocraft11790@gmail.com' // Replace with your email
+        };
+
+        // Send the email
+        emailjs.send('service_ghost', 'template_mhlfw2v', templateParams)
+            .then(function(response) {
+                alert('Message sent successfully!');
+                document.getElementById('messageForm').reset();
+            }, function(error) {
+                alert('Failed to send the message. Please try again.');
+            });
+    });
 });
